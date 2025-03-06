@@ -21,7 +21,7 @@ def download_audio(video_url):
         ydl.download([video_url])
 
 def transcribe_audio():
-    model = whisper.load_model("base")
+    model = whisper.load_model("tiny")
     result = model.transcribe("audio.mp3")
     return result["text"]
 
