@@ -1,8 +1,8 @@
+import os
+import yt_dlp
 from flask import Flask, request, jsonify
 from youtube_transcript_api import YouTubeTranscriptApi
 import whisper
-import os
-import yt_dlp
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def download_audio(video_url):
             'preferredquality': '192',
         }],
         'outtmpl': 'audio.mp3',
-        'cookiefile': 'cookies.txt'  # This will use cookies for authentication
+        'cookiefile': os.path.join(os.path.dirname(__file__), 'cookies.txt')  # Absolute Path Fix
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
@@ -42,6 +42,5 @@ def transcribe():
         return jsonify({"transcript": text})
 
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
