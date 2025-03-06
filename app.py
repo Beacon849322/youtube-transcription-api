@@ -15,6 +15,7 @@ def download_audio(video_url):
             'preferredquality': '192',
         }],
         'outtmpl': 'audio.mp3',
+        'cookiefile': 'cookies.txt'  # This will use cookies for authentication
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
@@ -42,5 +43,5 @@ def transcribe():
 
 if __name__ == '__main__':
     import os
-port = int(os.environ.get("PORT", 10000))
-app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
