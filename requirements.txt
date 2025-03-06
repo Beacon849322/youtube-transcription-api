@@ -2,3 +2,4 @@ flask
 youtube_transcript_api
 openai-whisper
 ffmpeg-python
+yt-dlp
