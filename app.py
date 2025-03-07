@@ -5,7 +5,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 app = Flask(__name__)
 
-COLAB_TRANSCRIBE_URL = "https://a339-34-16-236-206.ngrok-free.app"
+COLAB_TRANSCRIBE_URL = "https://27ad-34-124-155-54.ngrok-free.app"
 
 @app.route('/transcribe', methods=['GET'])
 def transcribe():
